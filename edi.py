@@ -8,6 +8,19 @@
 # # #
 
 
+def findLOC(ediFile):
+    ediLOC = []
+    lines = ediFile.split("'\n")
+    cSegment = []  # current segment
+    for i in lines:
+        if "LOC" in i:
+            cSegment = i.split("+")
+            # ediLOC.append(cSegment[1])
+            # ediLOC.append(cSegment[2])
+            ediLOC.append((cSegment[1], cSegment[2]))
+    return ediLOC
+
+
 def main():
     edi = """UNA: +.? &'
     UNB+UNOC: 3+2021000969+4441963198+180525: 1225+3VAL2MJV6EH9IX+KMSV7HMD+CUSDECU-IE++1++1&'
@@ -21,16 +34,7 @@ def main():
     DTM+9: 20090527: 102&'
     DTM+268: 20090626: 102&'
     DTM+182: 20090527: 102&'"""
-    ediLOC = []
-    lines = edi.split("'\n")
-    cSegment = []  # current segment
-    for i in lines:
-        if "LOC" in i:
-            cSegment = i.split("+")
-            # ediLOC.append(cSegment[1])
-            # ediLOC.append(cSegment[2])
-            ediLOC.append((cSegment[1], cSegment[2]))
-    print(ediLOC)
+    print(findLOC(edi))
 
 
 if __name__ == "__main__":
