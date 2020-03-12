@@ -2,7 +2,8 @@
 # I made use of the ElementTree XML API to solve this problem. Reading in the xml storing it as a hierarchical structure.
 # Then simply calling the .find method on the root of this structure to find the RefText with the appropriate RefCode.
 # I thought about what to do if a RefCode didn't exist and after some deliberation I opted for a try/except construction to
-# catch any exceptions that might occur in retrieval (I didn't specify for generality), returning "N\A" for the unavailable codes.
+# catch any exceptions that might occur in retrieval (I didn't specify for generality), returning "N\A" for the codes which
+# don't exist.
 # Some tests are included in the main.
 # # #
 
